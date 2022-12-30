@@ -1,0 +1,10 @@
+{
+  "singleQuote": false,
+  "jsxSingleQuote": false,
+  "semi": false,
+  "useTabs": false,
+  "printWidth": 80,
+  "trailingComma": "all",
+  "disableLanguages": ["html", "scss"],
+  "arrowParens": "avoid"
+}

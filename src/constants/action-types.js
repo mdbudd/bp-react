@@ -1,0 +1,4 @@
+export const LOAD_CATEGORIES = "LOAD_CATEGORIES"
+export const LOAD_GLOBAL = "LOAD_GLOBAL"
+export const RESIZE_GLOBAL = "RESIZE_GLOBAL"
+export const SET_SECTION = "SET_SECTION"
