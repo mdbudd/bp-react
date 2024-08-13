@@ -19,5 +19,13 @@
         }
     },
     "include": ["./src", "./webpack.config.ts"],
-    "exclude": []
+    "exclude": [
+      "**/test/*",
+      "**/coverage/*",
+      "**/node_modules/*",
+      "**/cjs/*",
+      "**/esm/*",
+      "**/*.test.ts",
+      "**/*.test.tsx",
+    ],
 }
