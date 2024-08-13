@@ -8,14 +8,23 @@
         />
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <meta name="theme-color" content="#FFFFFF" />
-        <title>BP React</title>
-        <link
-            href="/favicon/favicon.ico"
-            rel="shortcut icon"
-            type="image/x-icon"
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta name="twitter:title" content="React Boilerplate" />
+        <meta
+            name="twitter:description"
+            content="A pragmatic look at being creative with React."
         />
+        <meta
+            name="twitter:image"
+            content="https://www.example.co.uk/assets/img.jpg"
+        />
+        <title>&nbsp;</title>
+        <link rel="shortcut icon" type="image/x-icon" />
     </head>
     <body>
-        <div id="root"></div>
+        <div id="react-root"></div>
+        <div id="root-modal"></div>
+
+        <script src="<%= htmlWebpackPlugin.options.ppurl %>"></script>
     </body>
 </html>

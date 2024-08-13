@@ -1,16 +1,17 @@
 node_modules/
-npm-debug.log
-yarn-error.log
-.idea
+.next/
+.swc/
 .env
-.cfignore
+.*.env
+
+# for safety, please ask
 
 #Build
 *-min.js
 *.min.js.map
 *.min.css
 *.min.css.map
-build/
+dist/
 docs/
 coverage/
 certs/
@@ -20,16 +21,12 @@ certs/
 temp/
 manifest.yml
 Staticfile
-server/
+misc/
 
-
-notes.txt
-cv.js
-work.js
-query.js
-search.js
-helpers.js
-login.js
-register.js
-blog.js
-about.js
+#for now
+/data/*
+!data/.keep
+!data/info.example.json
+!data/nav.example.json
+/certs/*
+!certs/.keep
