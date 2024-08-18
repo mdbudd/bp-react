@@ -1,6 +1,6 @@
 import React, {useState, useEffect, useRef, useCallback} from "react"
 import {gsap} from "gsap"
-import {animFadeInPage, animFadeOutUp, animFadeOutDown} from "../common/animations"
+import {animFadeInPage, animFadeOutUp} from "../common/animations"
 import {useNavigate} from "react-router-dom"
 import {HomeContent} from "../components/Content"
 import {NavApp} from "../components/Navigation"
@@ -17,7 +17,6 @@ const Anim = (props) => {
     const dispatch = useAppDispatch()
     const navigate = useNavigate()
     const app = useRef<HTMLDivElement>(null)
-    const tl = useRef<GSAPTimeline>()
 
     const resizeReset = useCallback(() => {
         dispatch(
@@ -61,20 +60,15 @@ const Anim = (props) => {
                     left: window.innerWidth / 2 - 70,
                 }),
             )
-            // tl.current = gsap
-            //     .timeline()
-            //     // .to(".content", {opacity: 1, duration: 1})
-            //     .to([".content", ".nav"], fadeInOne)
-            //     .call(funky, ["interlude!"])
-            //     // .to(".square2", {x: 200, duration: 1})
         }, app)
+
         return () => {
             resizeReset()
             window.removeEventListener("resize", resizeReset)
             ctx.revert()
         }
-        /* eslint-disable-next-line */
-    }, [])
+    }, [globalState.title, props.pageTitle, resizeReset])
+
     useEffect(() => {
         if (transition) {
             animFadeOutUp([".content"], 0.3).eventCallback("onComplete", () => {
@@ -93,6 +87,7 @@ const Anim = (props) => {
     const navClick = () => {
         setTransition(true)
     }
+
     const navPos = globalState.navPos
 
     return (
