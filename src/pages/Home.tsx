@@ -1,4 +1,4 @@
-import React, {useState, useEffect, useRef} from "react"
+import React, {useState, useEffect, useRef, useCallback} from "react"
 import {gsap} from "gsap"
 import {animFadeInPage, animFadeOutUp, animFadeOutDown} from "../common/animations"
 import {useNavigate} from "react-router-dom"
@@ -19,7 +19,7 @@ const Anim = (props) => {
     const app = useRef<HTMLDivElement>(null)
     const tl = useRef<GSAPTimeline>()
 
-    const resizeReset = () => {
+    const resizeReset = useCallback(() => {
         dispatch(
             resizeGlobal({
                 top: (typeof window.innerHeight == "number" && window.innerHeight / 2.7 + 140) || 0,
@@ -38,7 +38,8 @@ const Anim = (props) => {
                 },
             }),
         )
-    }
+    }, [dispatch])
+
     useEffect(() => {
         resizeReset()
         document.title = props.pageTitle || globalState.title
