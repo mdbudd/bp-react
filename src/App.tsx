@@ -1,4 +1,8 @@
 import React, {useEffect, useState} from "react"
+
+import {store} from "./app/store"
+import {Provider} from "react-redux"
+
 import {default as AppRoutes} from "./app/Routes"
 import {ApolloClient, InMemoryCache, ApolloProvider} from "@apollo/client"
 
@@ -6,14 +10,13 @@ let gqluri = `${process.env.SERVER_DEV}/graphql`
 if (process.env.NODE_ENV === "production") {
     gqluri = `${process.env.SERVER_PROD}/graphql`
 }
+const appClient = new ApolloClient({
+    uri: gqluri,
 
-const App: React.FC = () => {
-    const appClient = new ApolloClient({
-        uri: gqluri,
+    cache: new InMemoryCache(),
+})
 
-        cache: new InMemoryCache(),
-    })
-
+const App: React.FC = (props) => {
     const [client, setClient] = useState(appClient || undefined)
 
     useEffect(() => {
@@ -22,9 +25,11 @@ const App: React.FC = () => {
     }, [])
 
     return client ? (
-        <ApolloProvider client={client}>
-            <AppRoutes />
-        </ApolloProvider>
+        <Provider store={store}>
+            <ApolloProvider client={client}>
+                <AppRoutes />
+            </ApolloProvider>
+        </Provider>
     ) : (
         <>loading</>
     )
