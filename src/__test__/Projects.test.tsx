@@ -41,23 +41,25 @@ const mocks = [
     },
 ]
 
-test("renders learn react link", () => {
-    const {container, getByText} = render(
-        <MockedProvider mocks={mocks}>
-            <TopProjects />
-        </MockedProvider>,
-    )
-    expect(container).toMatchSnapshot()
-})
+describe("Projects Component tests", () => {
+    it("renders learn react link", () => {
+        const {container, getByText} = render(
+            <MockedProvider mocks={mocks}>
+                <TopProjects />
+            </MockedProvider>,
+        )
+        expect(container).toMatchSnapshot()
+    })
 
-test("renders top project list", async () => {
-    const {container} = render(
-        <MockedProvider mocks={mocks}>
-            <TopProjects />
-        </MockedProvider>,
-    )
+    it("renders top project list", async () => {
+        const {container} = render(
+            <MockedProvider mocks={mocks}>
+                <TopProjects />
+            </MockedProvider>,
+        )
 
-    await waitFor(() => new Promise((res) => setTimeout(res, 0)))
+        await waitFor(() => new Promise((res) => setTimeout(res, 0)))
 
-    expect(container).toMatchSnapshot()
+        expect(container).toMatchSnapshot()
+    })
 })

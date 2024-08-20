@@ -120,7 +120,7 @@ const RouteComponent: React.FC = () => {
                     App Switch
                 </button>
             )}
-            {site == "matt" && (
+            {site == "matt" || site == "" && (
                 <Routes>
                     <Route path="/" element={<Home pageTitle={pageTitle} location={location} />} />
 
