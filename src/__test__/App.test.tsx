@@ -20,16 +20,16 @@ describe("App tests", () => {
         </Provider>,
     )
 
-    it("should contain the switch button text", async () => {
+    it("should contain the switch button text", () => {
         const button: HTMLElement = screen.getByText(/App Switch/i)
         expect(button).toBeInTheDocument()
     })
 
-    it("should contain different app name between switches", async () => {
+    it("should contain different app name between switches", () => {
         const h2: HTMLElement | null = container.querySelector("h2")
         expect(h2).not.toBeNull()
         h2 && expect(h2.textContent).toBe("App Name")
-        const button = await screen.getByText(/App Switch/i)
+        const button = screen.getByText(/App Switch/i)
         fireEvent.click(button)
         const h2Clicked: HTMLElement | null = container.querySelector("h2")
         expect(h2Clicked).not.toBeNull()
