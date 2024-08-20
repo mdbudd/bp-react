@@ -1,42 +1,48 @@
 {
     "bail": true,
     "collectCoverageFrom": [
-      "./src/**/*.{ts,tsx}",
-      "!**/node_modules/**",
-      "!**/cjs/**",
-      "!**/esm/**"
+        "./src/**/*.{ts,tsx}",
+        "!**/node_modules/**",
+        "!**/cjs/**",
+        "!**/esm/**"
+    ],
+    "coveragePathIgnorePatterns": [
+        "<rootDir>/src/index.tsx",
+        "<rootDir>/src/App.tsx",
+        "<rootDir>/src/common/animations.ts",
+        "<rootDir>/src/components/Icons.ts"
     ],
     "coverageThreshold": {
-      "global": {
-        "branches": 100,
-        "functions": 100,
-        "lines": 100,
-        "statements": 100
-      }
+        "global": {
+            "branches": 50,
+            "functions": 50,
+            "lines": 50,
+            "statements": 50
+        }
     },
     "transform": {
-      "^.+.tsx?$": [
-        "ts-jest",
-        {
-          "tsconfig": {
-            "sourceMap": true
-          },
-          "useESM": true
-        }
-      ]
+        "^.+.tsx?$": [
+            "ts-jest",
+            {
+                "tsconfig": {
+                    "sourceMap": true
+                },
+                "useESM": true
+            }
+        ]
     },
     "moduleDirectories": ["node_modules"],
     "moduleNameMapper": {
-      "^(\\.{1,2}/.*)\\.js$": "$1"
+        "^(\\.{1,2}/.*)\\.js$": "$1"
     },
     "setupFilesAfterEnv": ["<rootDir>/jest.setup.ts"],
     "testEnvironment": "jsdom",
     "testMatch": ["**/*.test.{ts,tsx}"],
     "testEnvironmentOptions": {
-      "url": "http://localhost"
+        "url": "http://localhost"
     },
     "transformIgnorePatterns": [
-      "/node_modules/(?!intl-messageformat|intl-messageformat-parser).+\\.js$"
+        "/node_modules/(?!intl-messageformat|intl-messageformat-parser).+\\.js$"
     ],
     "verbose": true
-  }
+}

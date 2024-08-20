@@ -7,7 +7,7 @@ import {loadGlobal} from "../features/global/globalSlice"
 
 const RouteComponent: React.FC = () => {
     const [pageTitle, setPageTitle] = useState("")
-    const [site, setSite] = useState("")
+    const [site, setSite] = useState("matt")
     const dispatch = useAppDispatch()
 
     const Logout = () => {
@@ -120,7 +120,7 @@ const RouteComponent: React.FC = () => {
                     App Switch
                 </button>
             )}
-            {site == "matt" || site == "" && (
+            {site == "matt" && (
                 <Routes>
                     <Route path="/" element={<Home pageTitle={pageTitle} location={location} />} />
 

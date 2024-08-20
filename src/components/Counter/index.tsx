@@ -1,5 +1,5 @@
 import React from "react"
-import {Main} from "../Navigation"
+// import {Main} from "../Navigation"
 
 import {useAppSelector, useAppDispatch} from "../../app/hooks"
 
@@ -12,7 +12,7 @@ export function Counter() {
 
     return (
         <div>
-            <Main />
+            {/* <Main /> */}
             <div>
                 <button aria-label="Increment value" onClick={() => dispatch(increment())}>
                     Increment

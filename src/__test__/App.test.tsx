@@ -9,7 +9,7 @@ import {default as AppRoutes} from "../app/Routes"
 
 describe("App tests", () => {
     const {APP_NAME, APP1_NAME} = process.env
-    
+
     const client = new ApolloClient({
         cache: new InMemoryCache(),
     })
@@ -36,5 +36,11 @@ describe("App tests", () => {
         const h2Clicked: HTMLElement | null = container.querySelector("h2")
         expect(h2Clicked).not.toBeNull()
         h2Clicked && expect(h2Clicked.textContent).toBe(APP1_NAME)
+        fireEvent.click(button)
+    })
+
+    it("should be able to navigate", () => {
+        const link = screen.getAllByRole("link")[0]
+        fireEvent.click(link)
     })
 })
