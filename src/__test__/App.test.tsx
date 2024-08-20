@@ -8,7 +8,7 @@ import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client"
 import {default as AppRoutes} from "../app/Routes"
 
 describe("App tests", () => {
-    it("should contains the switch button", () => {
+    it("should contain the switch button", () => {
         const client = new ApolloClient({
             cache: new InMemoryCache(),
         })

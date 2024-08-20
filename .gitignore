@@ -15,6 +15,7 @@ dist/
 docs/
 coverage/
 certs/
+__snapshots__/
 
 #Miscellaneous
 .DS_Store
