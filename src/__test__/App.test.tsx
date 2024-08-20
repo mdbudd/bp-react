@@ -1,4 +1,4 @@
-import {render, screen, waitFor} from "@testing-library/react"
+import {render, screen, waitFor, fireEvent} from "@testing-library/react"
 import "@testing-library/jest-dom"
 
 import React from "react"
@@ -25,9 +25,14 @@ describe("App tests", () => {
         expect(button).toBeInTheDocument()
     })
 
-    it("should contain the main app name from env variable", () => {
+    it("should contain different app name between switches", async () => {
         const h2: HTMLElement | null = container.querySelector("h2")
         expect(h2).not.toBeNull()
         h2 && expect(h2.textContent).toBe("App Name")
+        const button = await screen.getByText(/App Switch/i)
+        fireEvent.click(button)
+        const h2Clicked: HTMLElement | null = container.querySelector("h2")
+        expect(h2Clicked).not.toBeNull()
+        h2Clicked && expect(h2Clicked.textContent).toBe("App1 Name")
     })
 })
