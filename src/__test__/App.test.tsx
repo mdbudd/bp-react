@@ -8,6 +8,8 @@ import {ApolloClient, ApolloProvider, InMemoryCache} from "@apollo/client"
 import {default as AppRoutes} from "../app/Routes"
 
 describe("App tests", () => {
+    const {APP_NAME, APP1_NAME} = process.env
+    
     const client = new ApolloClient({
         cache: new InMemoryCache(),
     })
@@ -28,11 +30,11 @@ describe("App tests", () => {
     it("should contain different app name between switches", () => {
         const h2: HTMLElement | null = container.querySelector("h2")
         expect(h2).not.toBeNull()
-        h2 && expect(h2.textContent).toBe("App Name")
+        h2 && expect(h2.textContent).toBe(APP_NAME)
         const button = screen.getByText(/App Switch/i)
         fireEvent.click(button)
         const h2Clicked: HTMLElement | null = container.querySelector("h2")
         expect(h2Clicked).not.toBeNull()
-        h2Clicked && expect(h2Clicked.textContent).toBe("App1 Name")
+        h2Clicked && expect(h2Clicked.textContent).toBe(APP1_NAME)
     })
 })
